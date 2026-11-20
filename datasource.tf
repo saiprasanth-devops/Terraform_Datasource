@@ -14,3 +14,33 @@ data "aws_ami" "example" {
 
 
 
+data "aws_ami" "returnallamilinkedtoowners" {
+ 
+  most_recent      = true
+
+  owners           = ["973714476881"]
+
+
+  
+} 
+
+
+data "aws_ami" "multiplefilters" {
+ count = length(var.multipleamis)
+  most_recent      = true
+
+ # owners           = ["973714476881"]
+
+   filter {
+    name   = "image-id"
+    values = [var.multipleamis[count.index]]
+  }
+} 
+
+
+
+
+
+
+
+
