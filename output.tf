@@ -16,9 +16,6 @@ output "multipleamis"{
 value = {
     name_ami = data.aws_ami.multiplefilters[*].name
    id_ami = data.aws_ami.multiplefilters[*].id
-
-
-
 }
 }
 
